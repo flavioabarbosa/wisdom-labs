@@ -1,0 +1,27 @@
+	<div class="container"> 
+	<div class="hero-unit"> 
+
+		<img src=<%= "https://graph.facebook.com/#{@user.id_face}/picture?type=large" %> >
+		<h2> <%= @user.name %> <%= @user.surname %> </h2>
+		<h4> Email: <%= @user.email %> </h4>
+		<h4> Age: <%= Date.today.year - @user.age.to_date.year %> </h4>
+
+	</div>
+
+	<div class="container">
+		<div class="hero-unit">
+			<h2>Books That I Liked</h1>
+				<div>
+					<% @books.each do |book| %>
+						<tr>
+							<td> <h5> <% @book = Book.new( { name: book["name"], id_book: book["id"] } ) %> <h5> </td>
+						
+							<td> <img src=<%= "https://graph.facebook.com/#{ @book.id_book }/picture?width=70&height=110" %>  align="center"> </td> 
+						 	<td>  <%= @book.name %> </td> 
+										<% end %>
+						</tr>
+
+				</div>
+		</div>
+
+	</div>
